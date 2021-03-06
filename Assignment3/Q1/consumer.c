@@ -66,7 +66,7 @@ int pop()
 
 int push(data)
 {
-    if(!fullStack())
+    if(!fullStack)
     {
         top = top+1;
         stack[top] = data;

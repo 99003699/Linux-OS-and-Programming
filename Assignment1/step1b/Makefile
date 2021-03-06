@@ -10,7 +10,7 @@ $(Project_Name).out: $(SRC)
 	gcc $^ -o  $@ $(INC)
 
 run:
-	$(Project_Name).out
+	./$(Project_Name).out
 
 clean:
 	rm -rf *.o *.out

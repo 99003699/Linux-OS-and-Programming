@@ -7,7 +7,7 @@
 sem_t empty;
 sem_t full;
 int item;
-int cir_queue[MAX];
+int cir_queue[MAx];
 int front = -1;
 int rear = -1;
 void insert(item);
@@ -29,7 +29,7 @@ void* cons(void* pp)
 
 void insert(int item)
 {
-    if((front == 0 && rear == MAX-1) || (front == rear+1))
+    if((front == 0 && rear == MAx-1) || (front == rear+1))
     {
         printf("Circular Queue Overflow n");
         return;
@@ -41,7 +41,7 @@ void insert(int item)
         cir_queue[rear] = item ;
 
     }
-    else if(rear == MAX-1 && front!= 0)
+    else if(rear == MAx-1 && front!= 0)
         {   rear = 0;
             cir_queue[rear] = item ;
             //printf("Element Produced : %d\n",item);
@@ -51,9 +51,10 @@ void insert(int item)
             cir_queue[rear] = item ;
             //printf("Element Produced : %d\n",item);
         }
+        printf("Element Produced : %d\n",item);
     }
-    printf("Element Produced : %d\n",item);
-}
+    
+
 
 void delete()
 {
@@ -73,7 +74,7 @@ rear=-1;
 }
 else
 {
-if(front == MAX-1)
+if(front == MAx-1)
 front = 0;
 else
 front = front+1;
@@ -85,7 +86,7 @@ printf("Element Consumed : %d\n",cir_queue[front]);
 int main()
 {
   int item;
-   sem_init(&empty,0,MAX);
+   sem_init(&empty,0,MAx);
     sem_init(&full,0,0);
     pthread_t pro[8],con[8];
    printf("Enter the items to be produced and consumed of buffer 8\n ");
@@ -105,5 +106,3 @@ int main()
     sem_destroy(&full);
 return 0;
 }
-
-
